@@ -1,0 +1,33 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+# 应用名称
+spring:
+  application:
+    name: property_service
+  # 数据库用户名&密码：
+  datasource:
+    # 数据源名称
+    name: defaultDataSource
+    username: root
+    password: 52yt1314
+    # 数据库连接地址
+    url: jdbc:mysql://localhost:3306/property_service?useSSL=false&serverTimezone=UTC
+    # 数据库驱动：
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#下面这些内容是为了让MyBatis映射
+#指定Mybatis的Mapper文件
+mybatis:
+  mapper-locations: classpath:com/oysen/mapper/*xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+#指定Mybatis的实体目录
+#mybatis.type-aliases-package=com.oysen.mybatis.entity
+logging:
+  level:
+    com:
+      oysen:
+        mapper: debug
+
